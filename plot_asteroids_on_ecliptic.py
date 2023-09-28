@@ -10,6 +10,7 @@ import cmocean
 
 savename = "all_asteroids.png"
 figsize = (9.235, 9.235)
+dpi = 300
 cmap = cmocean.cm.thermal
 labels = dict(
     zip(
@@ -60,7 +61,7 @@ cmags = np.linspace(0, 0.8, len(classes) - len(classes_to_exclude))
 asteroid_colors = [cmap(cmag) for cmag in cmags]
 planet_colors = {"Earth": "#2B65EC", "Mars": "#cc1e2c", "Jupiter": "#c99039"}
 
-fig = plt.figure(figsize=figsize)
+fig = plt.figure(figsize=figsize, dpi=dpi)
 ax = fig.add_subplot(1, 1, 1, projection="polar")
 
 for planet in planets_to_plot:
@@ -116,6 +117,8 @@ ax.scatter(0, 0, marker=r"$\odot$", color="k", linewidth=0.05, alpha=0.5, s=69)
 # plt.legend(bbox_to_anchor=(1, 1))
 ax.set_rlim(0, 1e9)
 ax.axis("off")
+
+plt.savefig("fig.pdf", bbox_inches="tight")
 #
 
 # %%
