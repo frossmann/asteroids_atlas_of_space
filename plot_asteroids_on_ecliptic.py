@@ -85,14 +85,16 @@ for planet in planets_to_plot:
     )
 
 # add bennu
-ax.plot(bennu[:, 0], bennu[:, 1], linewidth=1, alpha=0.3, color="k", linestyle=":")
+ax.plot(
+    bennu[:, 0], bennu[:, 1], linewidth=1, alpha=0.3, color="#080E20", linestyle=":"
+)
 ax.scatter(
     bennu[-1, 0],
     bennu[-1, 1],
     label="Bennu",
-    marker="x",
-    alpha=1,
-    color="k",
+    marker="D",
+    alpha=0.6,
+    color="#080E20",
     zorder=1000,
 )
 
@@ -117,12 +119,20 @@ for ii, the_class in enumerate(classes):
     cindex += 1
 
 # add the sun
-ax.scatter(0, 0, marker=r"$\odot$", color="k", linewidth=0.05, alpha=0.5, s=69)
+ax.scatter(
+    0,
+    0,
+    marker=r"$\odot$",
+    color="#080E20",
+    linewidth=0.05,
+    alpha=0.5,
+    s=69,
+)
 # plt.legend(bbox_to_anchor=(1, 1))
 ax.set_rlim(0, 1e9)
 ax.axis("off")
 
-plt.savefig("fig.pdf", bbox_inches="tight")
+plt.savefig("asteroid_belt_ecliptic_v3.pdf", bbox_inches="tight")
 #
 
 # %%
